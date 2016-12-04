@@ -180,13 +180,13 @@ void Carpets()
 		printf("Error input!\n");
 	//	doReturn = 1;																					<<<<<<doReturn
 	}
-	printf("\n");
 	/*__________________________________________________
 
 	-----------------Third carpet loop------------------
 	____________________________________________________*/
 	if (w >= 2 && w <= 10 && w % 2 == 0)
 	{
+		printf("\n");
 		j, n, i = 0;
 		for (j = 1;j <= w / 2;j++)
 		{
@@ -316,8 +316,16 @@ void Equation()
 		{
 			reX = -b / (2 * a);
 			imX = sqrt(-determinant) / (2 * a);
+			if  (reX != 0)
+			{
 			printf("x1 = %.2f - %.2fi\n", reX, imX);
 			printf("x2 = %.2f + %.2fi\n", reX, imX);
+			}
+			else
+			{
+			printf("x1 = -%.2fi\n", imX);
+			printf("x2 = %.2fi\n", imX);
+			}
 		}
 	}
 

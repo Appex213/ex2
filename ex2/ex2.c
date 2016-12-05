@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <math.h>
 
-/*------------------------------------------------------Github Commit Test-------------------------------------------------------------*/
+/*------------------------------------------------------Github Commit v0.5-------------------------------------------------------------*/
 
 /*************************************************************************
 Function name: Triangle
@@ -17,7 +17,7 @@ Output: All triangular numbers within bordered area.
 The function operation: Calculates all triangular numbers up to upper limit, prints only numbers within requested area.
 ************************************************************************/
 
-void Triangle()
+Triangle()
 {
 	int limitR;
 	int limitL;
@@ -67,7 +67,7 @@ Output: Valid\Invalid ID number
 The function operation: Recieves ID number, adds all odd place numbers to sum. Doubles, separetes and sums all even place numbers, adds to sum. If number % 10 = 0 --> ID is valid.
 ************************************************************************/
 
-void ID()
+ID()
 {
 
 	int n = 1;
@@ -119,7 +119,7 @@ Output: Different designs of "carpets", size according to width.
 The function operation: Prints a specific pattern in size according to provided width. 3 carpets total.
 ************************************************************************/
 
-void Carpets()
+Carpets()
 {
 	int w, j, i, o, x, n;
 	int doReturn;
@@ -217,7 +217,7 @@ Output: Equation + solution.
 The function operation: Recieves 3 numbers. Prints correct equation according to numbers. Then calculates square roots of the equation and prints them.
 ************************************************************************/
 
-void Equation()
+Equation()
 {
 	float a, b, c;
 	float determinant;
@@ -237,6 +237,14 @@ void Equation()
 		printf("%.0f = 0\n", c);
 		printf("No solution!\n");
 	}
+	else if (a == 0 && b != 0 && c == 0)
+	{
+		printf("x = 0\n");
+	}
+	else if (a != 0 && b == 0 && c == 0)
+	{
+		printf("x = 0\n");
+	}
 	else
 	{
 		if (a == 0)
@@ -254,13 +262,19 @@ void Equation()
 		{
 			printf("%.0fx^2", a);
 		}
-
+		if (a==0)
+		{ }
+		else
+		{
+			if (b >= 1)
+				printf("+");
+		}
 		if (b == 0)
 		{
 		}
 		else if (b == 1)
 		{
-			printf("+x");
+			printf("x");
 		}
 		else if (b == -1)
 		{
@@ -268,9 +282,6 @@ void Equation()
 		}
 		else
 		{
-			if (b > 0)
-				printf("+%.0fx", b);
-			else
 				printf("%.0fx", b);
 		}
 
@@ -290,47 +301,54 @@ void Equation()
 		// Roots calculation code
 
 		determinant = b*b - 4 * a*c;
-		if (determinant > 0)
+		if (a == 0)
 		{
-			root1 = (-b - sqrt(determinant)) / (2 * a);
-			root2 = (-b + sqrt(determinant)) / (2 * a);
-			if (root1 < root2)
+			root1 = -c / b;
+			printf("x = %.2f\n", root1);
+		}
+		else if (determinant > 0)
 			{
+				root1 = (-b - sqrt(determinant)) / (2 * a);
+				root2 = (-b + sqrt(determinant)) / (2 * a);
+				if (root1 < root2)
+				{
+					printf("x1 = %.2f\n", root1);
+					printf("x2 = %.2f\n", root2);
+				}
+				else
+				{
+					printf("x1 = %.2f\n", root2);
+					printf("x2 = %.2f\n", root1);
+
+				}
+			}
+			else if (determinant == 0)
+			{
+				root1 = root2 = -b / (2 * a);
 				printf("x1 = %.2f\n", root1);
 				printf("x2 = %.2f\n", root2);
 			}
 			else
 			{
-				printf("x1 = %.2f\n", root2);
-				printf("x2 = %.2f\n", root1);
-
+				reX = -b / (2 * a);
+				imX = sqrt(-determinant) / (2 * a);
+				if (reX != 0)
+				{
+					printf("x1 = %.2f - %.2fi\n", reX, imX);
+					printf("x2 = %.2f + %.2fi\n", reX, imX);
+				}
+				else
+				{
+					printf("x1 = -%.2fi\n", imX);
+					printf("x2 = %.2fi\n", imX);
+				}
 			}
 		}
-		else if (determinant == 0)
-		{
-			root1 = root2 = -b / (2 * a);
-			printf("x1 = %.2f\n", root1);
-			printf("x2 = %.2f\n", root2);
-		}
-		else
-		{
-			reX = -b / (2 * a);
-			imX = sqrt(-determinant) / (2 * a);
-			if  (reX != 0)
-			{
-			printf("x1 = %.2f - %.2fi\n", reX, imX);
-			printf("x2 = %.2f + %.2fi\n", reX, imX);
-			}
-			else
-			{
-			printf("x1 = -%.2fi\n", imX);
-			printf("x2 = %.2fi\n", imX);
-			}
-		}
-	}
+	
 
 	return;
 }
+
 
 /*************************************************************************
 Function name: Main
@@ -375,3 +393,4 @@ int main()
 
 	return 0;
 }
+

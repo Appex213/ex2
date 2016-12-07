@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <math.h>
 
-/*------------------------------------------------------Github Commit v0.53-------------------------------------------------------------*/
+/*------------------------------------------------------Github Commit v0.54-------------------------------------------------------------*/
 
 /*************************************************************************
 Function name: Main
@@ -293,50 +293,35 @@ Equation()
 	}
 	else
 	{
+		// a*x^2
 		if (a == 0)
-		{
-		}
+		{}
 		else if (a == 1)
-		{
 			printf("x^2");
-		}
 		else if (a == -1)
-		{
 			printf("-x^2");
-		}
 		else
-		{
 			printf("%.0fx^2", a);
-		}
 		if (a==0)
 		{ }
-		else
-		{
-			if (b >= 1)
-				printf("+");
-		}
+		else if (b >= 1)
+			printf("+");
+		// b*x
 		if (b == 0)
-		{
-		}
+		{}
 		else if (b == 1)
-		{
 			printf("x");
-		}
 		else if (b == -1)
-		{
 			printf("-x");
-		}
 		else
-		{
-				printf("%.0fx", b);
-		}
-
+			printf("%.0fx", b);
+		// c
 		if (c == 0)
 		{}
 		else if (c > 0)
-				printf("+%.0f", c);
+			printf("+%.0f", c);
 		else
-				printf("%.0f", c);
+			printf("%.0f", c);
 		
 
 		printf(" = 0\n");

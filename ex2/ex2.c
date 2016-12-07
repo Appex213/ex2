@@ -285,11 +285,11 @@ Equation()
 	}
 	else if (a == 0 && b != 0 && c == 0)
 	{
-		printf("x = 0\n");
+		printf("x1 = 0\n");
 	}
 	else if (a != 0 && b == 0 && c == 0)
 	{
-		printf("x = 0\n");
+		printf("x1 = 0\n");
 	}
 	else
 	{
@@ -332,7 +332,7 @@ Equation()
 		if (a == 0)
 		{
 			root1 = -c / b;
-			printf("x = %.2f\n", root1);
+			printf("x1 = %.2f\n", root1);
 		}
 		else if (determinant > 0)
 			{

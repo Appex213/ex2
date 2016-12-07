@@ -8,7 +8,53 @@
 #include <stdio.h>
 #include <math.h>
 
-/*------------------------------------------------------Github Commit v0.52-------------------------------------------------------------*/
+/*------------------------------------------------------Github Commit v0.53-------------------------------------------------------------*/
+
+/*************************************************************************
+Function name: Main
+Input: Number (1,2,3,4,-1)
+Output: Called function according to input.
+The function operation: Recieves number and calls the correct function (or quits) according to user input.
+************************************************************************/
+
+int main()
+{
+	int userChoice;
+
+
+	do
+	{
+		printf("Choose 1 for triangle, 2 for ID, 3 for carpets, 4 for equation, -1 for exit\n");
+		scanf("%d", &userChoice);
+		switch (userChoice)
+		{
+		case 1:
+			Triangle();
+			break;
+		case 2:
+			ID();
+			break;
+		case 3:
+			Carpets();
+			break;
+		case 4:
+			Equation();
+			break;
+		case -1:
+			break;
+		default:
+			printf("No such option!\n");
+
+
+		}
+	} while (userChoice != -1);
+
+
+
+	return 0;
+}
+
+
 
 /*************************************************************************
 Function name: Triangle
@@ -286,15 +332,12 @@ Equation()
 		}
 
 		if (c == 0)
-		{
-		}
-		else
-		{
-			if (c > 0)
+		{}
+		else if (c > 0)
 				printf("+%.0f", c);
-			else
+		else
 				printf("%.0f", c);
-		}
+		
 
 		printf(" = 0\n");
 
@@ -308,8 +351,8 @@ Equation()
 		}
 		else if (determinant > 0)
 			{
-				root1 = (-b - sqrt(determinant)) / (2 * a);
-				root2 = (-b + sqrt(determinant)) / (2 * a);
+				root1 = (-b + sqrt(determinant)) / (2 * a);
+				root2 = (-b - sqrt(determinant)) / (2 * a);
 				if (root1 < root2)
 				{
 					printf("x1 = %.2f\n", root1);
@@ -352,49 +395,3 @@ Equation()
 
 	return;
 }
-
-
-/*************************************************************************
-Function name: Main
-Input: Number (1,2,3,4,-1)
-Output: Called function according to input.
-The function operation: Recieves number and calls the correct function (or quits) according to user input.
-************************************************************************/
-
-int main()
-{
-	int userChoice;
-
-
-	do
-	{
-		printf("Choose 1 for triangle, 2 for ID, 3 for carpets, 4 for equation, -1 for exit\n");
-		scanf("%d", &userChoice);
-		switch (userChoice)
-		{
-		case 1:
-			Triangle();
-			break;
-		case 2:
-			ID();
-			break;
-		case 3:
-			Carpets();
-			break;
-		case 4:
-			Equation();
-			break;
-		case -1:
-			break;
-		default:
-			printf("No such option!\n");
-
-
-		}
-	} while (userChoice != -1);
-
-
-
-	return 0;
-}
-

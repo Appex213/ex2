@@ -285,7 +285,9 @@ Equation()
 	}
 	else if (a == 0 && b != 0 && c == 0)
 	{
-		printf("x1 = 0\n");
+		root1 = 0;
+		printf("x = 0\n");
+		printf("x1 = %.2f\n");
 	}
 	else if (a != 0 && b == 0 && c == 0)
 	{

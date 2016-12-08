@@ -285,7 +285,6 @@ Equation()
 	}
 	else if (a == 0 && b != 0 && c == 0)
 	{
-		root1 = 0;
 		printf("x = 0\n");
 		printf("x1 = %.2f\n");
 	}

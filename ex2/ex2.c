@@ -17,38 +17,35 @@ Output: Called function according to input.
 The function operation: Recieves number and calls the correct function (or quits) according to user input.
 ************************************************************************/
 
-int main()
-{
+int main() {
 	int userChoice;
-
 
 	do
 	{
 		printf("Choose 1 for triangle, 2 for ID, 3 for carpets, 4 for equation, -1 for exit\n");
-		scanf("%d", &userChoice); //User input.
+		//User input.
+		scanf("%d", &userChoice);
 		switch (userChoice)
 		{
 		case 1:
-			Triangle();
-			break;
+				Triangle();
+				break;
 		case 2:
-			ID();
-			break;
+				ID();
+				break;
 		case 3:
-			Carpets();
-			break;
+				Carpets();
+				break;
 		case 4:
-			Equation();
-			break;
+				Equation();
+				break;
 		case -1:
-			break;
+				break;
 		default:
 			printf("No such option!\n");
-
-
 		}
-	} while (userChoice != -1);
 
+	} while (userChoice != -1);
 
 
 	return 0;
@@ -63,45 +60,41 @@ Output: All triangular numbers within bordered area.
 The function operation: Calculates all triangular numbers up to upper limit, prints only numbers within requested area.
 ************************************************************************/
 
-Triangle()
-{
+Triangle() {
+
 	int limitR;
 	int limitL;
 	int doesExist = 0;
 	int triNum = 0;
 	int i;
-	int doReturn;  //Unnecessary, no need to reset function when input = error.
 
-	do
-	{
-		doReturn = 0;
+		//User input.
 		printf("Enter 2 numbers (left and right):\n"); 
-		scanf("%d", &limitL);       //User input.
+		scanf("%d", &limitL);       
 		scanf("%d", &limitR);
 		if (limitR >= limitL)
 		{
-			for (i = 1; triNum <= limitR; i++) // Scan through all triangular number smaller than LimitR.
+			// Scan through all triangular number smaller than LimitR.
+			for (i = 1; triNum <= limitR; i++)
 			{
 				triNum = i*i + i;
 				triNum = triNum / 2;
-				if (triNum >= limitL&&triNum <= limitR) // Print only numbers within borders (inclusive).
+				// Print only numbers within borders (inclusive).
+				if (triNum >= limitL&&triNum <= limitR)
 				{
 					printf("%d\n", triNum);
 					doesExist = 1;
 				}
 			}
 		}
-		else
-		{
+		else {
 			printf("Error input!\n");
 			doesExist = 1;
-			//	doReturn = 1;																					<<<<<<doReturn
 		}
-		if (doesExist == 0) // Only prints when doesExist wasn't triggered.
-		{
+		// Only prints when doesExist wasn't triggered.
+		if (doesExist == 0) 
 			printf("None\n");
-		}
-	} while (doReturn != 0);
+		
 
 	return;
 }
@@ -113,40 +106,43 @@ Output: Valid\Invalid ID number
 The function operation: Recieves ID number, adds all odd place numbers to sum. Doubles, separetes and sums all even place numbers, adds to sum. If number % 10 = 0 --> ID is valid.
 ************************************************************************/
 
-ID()
-{
+ID() {
 
 	int n = 1;
 	int i = 1;
 	int temp, temp1, temp2;
 	int sum = 0;
 	unsigned long int idNum;
-	scanf("%d", &idNum); //User input.
+	//User input.
+	scanf("%d", &idNum); 
 	while (n <= 9)
 	{
 		switch (i)
 		{
-		case 0: //When digit is in even position (2,4,6,8).
-			temp = idNum % 10;
-			temp = temp * 2;
-			temp2 = temp % 10;
-			temp1 = temp / 10;
-			temp = temp1 + temp2;
-			sum = sum + temp;
-			idNum = idNum / 10;
-			n++;
-			i = 1;
-			break;
-		case 1: //When digit is in odd position (1,3,5,7,9).
-			temp = idNum % 10;
-			sum = sum + temp;
-			idNum = idNum / 10;
-			n++;
-			i = 0;
-			break;
-		default: //Only because it is required, shouldn't ever happen.
-			printf("How did this even happened?");
-			break;
+		//When digit is in even position (2,4,6,8).
+		case 0: 
+				temp = idNum % 10;
+				temp = temp * 2;
+				temp2 = temp % 10;
+				temp1 = temp / 10;
+				temp = temp1 + temp2;
+				sum = sum + temp;
+				idNum = idNum / 10;
+				n++;
+				i = 1;
+				break;
+		//When digit is in odd position (1,3,5,7,9).
+		case 1: 
+				temp = idNum % 10;
+				sum = sum + temp;
+				idNum = idNum / 10;
+				n++;
+				i = 0;
+				break;
+		//Only because it is required, shouldn't ever happen.
+		default: 
+				printf("How did this even happened?");
+				break;
 		}
 	}
 
@@ -165,24 +161,24 @@ Output: Different designs of "carpets", size according to width.
 The function operation: Prints a specific pattern in size according to provided width. 3 carpets total.
 ************************************************************************/
 
-Carpets()
-{
+Carpets() {
+	
 	int w, j, i, o, x, n;
-	int doReturn;   //Unnecessary, no need to reset function when input = error.
-	do
-	{
-	doReturn = 0;
+
 	// First and second carpets
 	scanf("%d", &w); //User input.
 	/*__________________________________________________
 
 	-----------------First carpet loop------------------
 	____________________________________________________*/
-	if (w >= 2 && w <= 10) // Only prints on 2-10 inclusive.
+	// Only prints on 2-10 inclusive.
+	if (w >= 2 && w <= 10)	
 	{
-		for (j = 1;j <= w;j++) //Line loop//
+		//Line loop//
+		for (j = 1;j <= w;j++)
 		{
-			if (j % 2 == 0)// On odd lines print O first.
+			// On odd lines print O first.
+			if (j % 2 == 0)
 			{
 				for (i = 1;i <= w;i++)
 				{
@@ -192,7 +188,8 @@ Carpets()
 						printf("X");
 				}
 			}
-			else // On even lines print X first.
+			// On even lines print X first.
+			else
 			{
 				for (i = 1;i <= w;i++)
 				{
@@ -222,19 +219,18 @@ Carpets()
 		}
 	}
 	else
-	{
 		printf("Error input!\n");
-	//	doReturn = 1;																					<<<<<<doReturn
-	}
 	/*__________________________________________________
 
 	-----------------Third carpet loop------------------
 	____________________________________________________*/
-	if (w >= 2 && w <= 10 && w % 2 == 0) //Only prints on 2,4,6,8,10.
+	//Only prints on 2,4,6,8,10.
+	if (w >= 2 && w <= 10 && w % 2 == 0)
 	{
 		printf("\n");
 		j, n, i = 0;
-		for (j = 1;j <= w / 2;j++) //Top half, print X's first.
+		//Top half, print X's first.
+		for (j = 1;j <= w / 2;j++)
 		{
 			for (i = 1;i <= w / 2;i++)
 				printf("X");
@@ -242,7 +238,8 @@ Carpets()
 				printf("O");
 			printf("\n");
 		}
-		for (j = w;j > (w / 2);j--)//Bottom half, print O's first.
+		//Bottom half, print O's first.
+		for (j = w;j > (w / 2);j--)
 		{
 			for (i = 1;i <= w / 2;i++)
 				printf("O");
@@ -251,7 +248,6 @@ Carpets()
 			printf("\n");
 		}
 	}
-	} while (doReturn != 0);
 
 	return;
 }
@@ -268,9 +264,10 @@ Equation()
 	float a, b, c;
 	float determinant;
 	float root1, root2, reX, imX;
-
+	
+	//User input.
 	printf("Enter three numbers:\n");
-	scanf("%f %f %f", &a, &b, &c); //User input.
+	scanf("%f %f %f", &a, &b, &c); 
 
 	// Equation print code
 	if (a == 0 && b == 0 && c == 0)
@@ -285,12 +282,25 @@ Equation()
 	}
 	else if (a == 0 && b != 0 && c == 0)
 	{
-		printf("x = 0\n");
-		printf("x1 = %.2f\n"); //Prints 0.00.
+		if (b == 1)
+			printf("x = 0\n");
+		else if (b == -1)
+			printf("-x = 0\n");
+		else
+			printf("%.0fx = 0\n", b);
+		//Prints 0.00.
+		printf("x1 = %.2f\n");
 	}
 	else if (a != 0 && b == 0 && c == 0)
 	{
-		printf("x1 = 0\n");
+		if (a == 1)
+			printf("x^2 = 0\n");
+		else if (a == -1)
+			printf("-x^2 = 0\n");
+		else
+			printf("%.0fx^2 = 0\n", a);
+		//Prints 0.00.
+		printf("x1 = %.2f\n"); 
 	}
 	else
 	{
@@ -330,12 +340,14 @@ Equation()
 		// Roots calculation code
 
 		determinant = b*b - 4 * a*c;
-		if (a == 0) //Linear equation, single solution.
+		//Linear equation, single solution.
+		if (a == 0)
 		{
 			root1 = -c / b;
 			printf("x1 = %.2f\n", root1);
 		}
-		else if (determinant > 0) // Non-complex
+		// Non-complex
+		else if (determinant > 0) 
 			{
 				root1 = (-b + sqrt(determinant)) / (2 * a);
 				root2 = (-b - sqrt(determinant)) / (2 * a);
@@ -344,7 +356,8 @@ Equation()
 					root1 = 0;
 				if (root2 == 0)
 					root2 = 0;
-				if (root1 < root2) //Print smaller solution first.
+				//Print smaller solution first.
+				if (root1 < root2) 
 				{
 					printf("x1 = %.2f\n", root1);
 					printf("x2 = %.2f\n", root2);
@@ -356,12 +369,14 @@ Equation()
 
 				}
 			}
-			else if (determinant == 0) //Single solution.
+			//Single solution.
+			else if (determinant == 0) 
 			{
 				root1 = root2 = -b / (2 * a);
 				printf("x1 = %.2f\n", root1);
 			}
-			else //Complex
+			//Complex
+			else 
 			{
 				reX = -b / (2 * a);
 				imX = sqrt(-determinant) / (2 * a);
@@ -370,7 +385,8 @@ Equation()
 					printf("x1 = %.2f - %.2fi\n", reX, imX);
 					printf("x2 = %.2f + %.2fi\n", reX, imX);
 				}
-				else if (imX<0) //Display solutions with negative imX as [xi,-xi] not [-xi,--xi]
+				//Display solutions with negative imX as [xi,-xi] not [-xi,--xi]
+				else if (imX<0)
 				{
 					printf("x1 = -%.2fi\n", -imX);
 					printf("x2 = %.2fi\n", -imX);

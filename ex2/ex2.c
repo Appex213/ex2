@@ -8,7 +8,8 @@
 #include <stdio.h>
 #include <math.h>
 
-/*------------------------------------------------------Github Commit v0.61-------------------------------------------------------------*/
+
+/*------------------------------------------------------Github Commit v0.62-------------------------------------------------------------*/
 
 /*************************************************************************
 Function name: Main
@@ -16,9 +17,13 @@ Input: Number (1,2,3,4,-1)
 Output: Called function according to input.
 The function operation: Recieves number and calls the correct function (or quits) according to user input.
 ************************************************************************/
+void Triangle();
+void ID();
+void Carpets();
+void Equation();
 
 int main() {
-	int userChoice;
+	int userChoice;	
 
 	do
 	{
@@ -28,7 +33,7 @@ int main() {
 		switch (userChoice)
 		{
 		case 1:
-				Triangle();
+			  Triangle();
 				break;
 		case 2:
 				ID();
@@ -60,7 +65,8 @@ Output: All triangular numbers within bordered area.
 The function operation: Calculates all triangular numbers up to upper limit, prints only numbers within requested area.
 ************************************************************************/
 
-Triangle() {
+void Triangle() {
+
 
 	int limitR;
 	int limitL;
@@ -94,7 +100,7 @@ Triangle() {
 		// Only prints when doesExist wasn't triggered.
 		if (doesExist == 0) 
 			printf("None\n");
-		
+
 
 	return;
 }
@@ -106,7 +112,7 @@ Output: Valid\Invalid ID number
 The function operation: Recieves ID number, adds all odd place numbers to sum. Doubles, separetes and sums all even place numbers, adds to sum. If number % 10 = 0 --> ID is valid.
 ************************************************************************/
 
-ID() {
+void ID() {
 
 	int n = 1;
 	int i = 1;
@@ -161,14 +167,13 @@ Output: Different designs of "carpets", size according to width.
 The function operation: Prints a specific pattern in size according to provided width. 3 carpets total.
 ************************************************************************/
 
-Carpets() {
-	
+void Carpets() {
+
 	int w, j, i, o, x, n;
 
 	// First and second carpets
 	scanf("%d", &w); //User input.
 	/*__________________________________________________
-
 	-----------------First carpet loop------------------
 	____________________________________________________*/
 	// Only prints on 2-10 inclusive.
@@ -202,7 +207,6 @@ Carpets() {
 			printf("\n");
 		}
 		/*__________________________________________________
-
 		-----------------Second carpet loop------------------
 		____________________________________________________*/
 		n = 0;
@@ -221,7 +225,6 @@ Carpets() {
 	else
 		printf("Error input!\n");
 	/*__________________________________________________
-
 	-----------------Third carpet loop------------------
 	____________________________________________________*/
 	//Only prints on 2,4,6,8,10.
@@ -259,12 +262,11 @@ Output: Equation + solution.
 The function operation: Recieves 3 numbers. Prints correct equation according to numbers. Then calculates square roots of the equation and prints them.
 ************************************************************************/
 
-Equation()
+void Equation()
 {
 	float a, b, c;
 	float determinant;
 	float root1, root2, reX, imX;
-	
 	//User input.
 	printf("Enter three numbers:\n");
 	scanf("%f %f %f", &a, &b, &c); 
@@ -333,7 +335,6 @@ Equation()
 			printf("+%.0f", c);
 		else
 			printf("%.0f", c);
-		
 
 		printf(" = 0\n");
 
@@ -398,7 +399,7 @@ Equation()
 				}
 			}
 		}
-	
+
 
 	return;
 }

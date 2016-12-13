@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <math.h>
 
+
 /*------------------------------------------------------Github Commit v0.62-------------------------------------------------------------*/
 
 /*************************************************************************
@@ -65,6 +66,7 @@ The function operation: Calculates all triangular numbers up to upper limit, pri
 ************************************************************************/
 
 void Triangle() {
+
 
 	int limitR;
 	int limitL;
@@ -265,7 +267,6 @@ void Equation()
 	float a, b, c;
 	float determinant;
 	float root1, root2, reX, imX;
-
 	//User input.
 	printf("Enter three numbers:\n");
 	scanf("%f %f %f", &a, &b, &c); 
@@ -334,7 +335,6 @@ void Equation()
 			printf("+%.0f", c);
 		else
 			printf("%.0f", c);
-
 
 		printf(" = 0\n");
 

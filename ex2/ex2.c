@@ -9,7 +9,7 @@
 #include <math.h>
 
 
-/*------------------------------------------------------Github Commit v0.62-------------------------------------------------------------*/
+/*------------------------------------------------------Github Commit v0.65RC-------------------------------------------------------------*/
 
 /*************************************************************************
 Function name: Main
@@ -22,9 +22,9 @@ void ID();
 void Carpets();
 void Equation();
 
-int main() {
+int main()
+{
 	int userChoice;	
-
 	do
 	{
 		printf("Choose 1 for triangle, 2 for ID, 3 for carpets, 4 for equation, -1 for exit\n");
@@ -65,41 +65,40 @@ Output: All triangular numbers within bordered area.
 The function operation: Calculates all triangular numbers up to upper limit, prints only numbers within requested area.
 ************************************************************************/
 
-void Triangle() {
-
-
+void Triangle()
+{
 	int limitR;
 	int limitL;
 	int doesExist = 0;
 	int triNum = 0;
 	int i;
 
-		//User input.
-		printf("Enter 2 numbers (left and right):\n"); 
-		scanf("%d", &limitL);       
-		scanf("%d", &limitR);
-		if (limitR >= limitL)
+	//User input.
+	printf("Enter 2 numbers (left and right):\n"); 
+	scanf("%d", &limitL);       
+	scanf("%d", &limitR);
+	if (limitR >= limitL)
+	{
+		// Scan through all triangular number smaller than LimitR.
+		for (i = 1; triNum <= limitR; i++)
 		{
-			// Scan through all triangular number smaller than LimitR.
-			for (i = 1; triNum <= limitR; i++)
+			triNum = i*i + i;
+			triNum = triNum / 2;
+			// Print only numbers within borders (inclusive).
+			if (triNum >= limitL&&triNum <= limitR)
 			{
-				triNum = i*i + i;
-				triNum = triNum / 2;
-				// Print only numbers within borders (inclusive).
-				if (triNum >= limitL&&triNum <= limitR)
-				{
-					printf("%d\n", triNum);
-					doesExist = 1;
-				}
+				printf("%d\n", triNum);
+				doesExist = 1;
 			}
 		}
-		else {
-			printf("Error input!\n");
-			doesExist = 1;
-		}
-		// Only prints when doesExist wasn't triggered.
-		if (doesExist == 0) 
-			printf("None\n");
+	}
+	else {
+		printf("Error input!\n");
+		doesExist = 1;
+	}
+	// Only prints when doesExist wasn't triggered.
+	if (doesExist == 0) 
+		printf("None\n");
 
 
 	return;
@@ -112,8 +111,8 @@ Output: Valid\Invalid ID number
 The function operation: Recieves ID number, adds all odd place numbers to sum. Doubles, separetes and sums all even place numbers, adds to sum. If number % 10 = 0 --> ID is valid.
 ************************************************************************/
 
-void ID() {
-
+void ID()
+{
 	int n = 1;
 	int i = 1;
 	int temp, temp1, temp2;
@@ -167,7 +166,8 @@ Output: Different designs of "carpets", size according to width.
 The function operation: Prints a specific pattern in size according to provided width. 3 carpets total.
 ************************************************************************/
 
-void Carpets() {
+void Carpets()
+{
 
 	int w, j, i, o, x, n;
 
@@ -222,6 +222,7 @@ void Carpets() {
 			n++;
 		}
 	}
+	//When input is not 2-10
 	else
 		printf("Error input!\n");
 	/*__________________________________________________
@@ -265,13 +266,14 @@ The function operation: Recieves 3 numbers. Prints correct equation according to
 void Equation()
 {
 	float a, b, c;
-	float determinant;
+	float discriminant;
 	float root1, root2, reX, imX;
 	//User input.
 	printf("Enter three numbers:\n");
 	scanf("%f %f %f", &a, &b, &c); 
 
-	// Equation print code
+	/*----Equation print code----*/
+	//Special cases
 	if (a == 0 && b == 0 && c == 0)
 	{
 		printf("0 = 0\n");
@@ -304,6 +306,7 @@ void Equation()
 		//Prints 0.00.
 		printf("x1 = %.2f\n"); 
 	}
+	//If not a special case, print equation normally.
 	else
 	{
 		// a*x^2
@@ -338,9 +341,9 @@ void Equation()
 
 		printf(" = 0\n");
 
-		// Roots calculation code
+		/*----Roots calculation----*/
 
-		determinant = b*b - 4 * a*c;
+		discriminant = b*b - 4 * a*c;
 		//Linear equation, single solution.
 		if (a == 0)
 		{
@@ -348,10 +351,10 @@ void Equation()
 			printf("x1 = %.2f\n", root1);
 		}
 		// Non-complex
-		else if (determinant > 0) 
+		else if (discriminant > 0) 
 			{
-				root1 = (-b + sqrt(determinant)) / (2 * a);
-				root2 = (-b - sqrt(determinant)) / (2 * a);
+				root1 = (-b + sqrt(discriminant)) / (2 * a);
+				root2 = (-b - sqrt(discriminant)) / (2 * a);
 				//Display 0 as 0.00 not -0.00
 				if (root1 == 0)
 					root1 = 0;
@@ -371,7 +374,7 @@ void Equation()
 				}
 			}
 			//Single solution.
-			else if (determinant == 0) 
+			else if (discriminant == 0) 
 			{
 				root1 = root2 = -b / (2 * a);
 				printf("x1 = %.2f\n", root1);
@@ -380,7 +383,7 @@ void Equation()
 			else 
 			{
 				reX = -b / (2 * a);
-				imX = sqrt(-determinant) / (2 * a);
+				imX = sqrt(-discriminant) / (2 * a);
 				if (reX != 0)
 				{
 					printf("x1 = %.2f - %.2fi\n", reX, imX);
